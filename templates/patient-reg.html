@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paitent Registration Form</title>
+    <link rel="stylesheet" href="{% static 'paitentregister.css' %}">
+</head>
+<body>
+
+<div class="nav">
+    <label class="logo">
+        India's Fight Against Corona
+    </label>
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'details' %}">Upload Everyday Report</a></li>
+        <li><a href="{% url 'patient-reg' %}">Paitent Register</a></li>
+        <li><a href="{% url 'logout' %}">LogOut</a></li>
+    </ul>
+</div>
+
+<div class="wrapper">
+    <div class="title">
+        Paitent Registration Form
+    </div>
+    <div class="form">
+        <form action="{% url 'patient-reg' %}" method="post">
+            <div class="inputfield">
+                <label>Paitent Name</label>
+                <input type="text" class="input" name="name" required>
+            </div>
+            <div class="inputfield">
+                <label>Fathers Name</label>
+                <input type="text" class="input" name="father" required>
+            </div>
+            <div class="inputfield">
+                <label>Aadhar Card Number</label>
+                <input type="number" class="input" name="aadhar" required>
+            </div>
+            <div class="inputfield">
+                <label>Mobile Number</label>
+                <input type="number" class="input" name="mobile" required>
+            </div>
+            <div class="inputfield">
+                <label>Report Status</label>
+                <div class="custom_select">
+                    <select name="status" required>
+                        <option value="">Select</option>
+                        <option value="male">Positive</option>
+                        <option value="female">Negative</option>
+                        <option value="female">Pending</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <label>Age Group</label>
+                <div class="custom_select">
+                    <select name="age" required>
+                        <option value="">Select</option>
+                        <option value="male">0-10</option>
+                        <option value="female">10-20</option>
+                        <option value="female">20-30</option>
+                        <option value="female">30-40</option>
+                        <option value="female">40-50</option>
+                        <option value="female">50-60</option>
+                        <option value="female">60-70</option>
+                        <option value="female">70-80</option>
+                        <option value="female">80-90</option>
+                        <option value="female">90-100</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <label>Come to Hospital by</label>
+                <div class="custom_select">
+                    <select name="come_by" required>
+                        <option value="">Select</option>
+                        <option value="male">Himself/Herself</option>
+                        <option value="female">Taken by authority</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="inputfield">
+                <label>Gender</label>
+                <div class="custom_select">
+                    <select name="gender" required>
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="female">Others</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="inputfield">
+                <input type="submit" value="Update Paitent" class="btn">
+            </div>
+            {% csrf_token %}
+        </form>
+    </div>
+    <!---<div class="regnot">
+      <label class="notreg">Already Registered? <a href="login.html">LogIn here.</a></label>
+    </div>-->
+</div>
+
+</body>
+</html>

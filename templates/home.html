@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+<div class="nav">
+    <label class="logo">
+        India's Fight Against Corona
+    </label>
+    <ul>
+        <li><a href="#">Home</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'details' %}">Upload Everyday Report</a></li>
+            <li><a href="{% url 'patient-reg' %}">Paitent Register</a></li>
+            <li><a href="{% url 'logout' %}">LogOut</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}">LogIn</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+        {% endif %}
+    </ul>
+</div>
+
+<div class="helpline">
+    <ul>
+        <li><strong>Helpline Number:</strong></li>
+        +91-11-23978046
+        <li><strong>Toll Free:</strong></li>
+        1075
+        <li><strong>Helpline Email ID:</strong></li>
+        ncov2019@gov.in
+        <li class="statee"><strong><a href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf"
+                                      class="state">States & Union Territories (View pdf)</a></strong></li>
+    </ul>
+</div>
+
+<div class="container">
+    <div class="box1">
+        <div class="icon">
+            <img src="{% static 'img/icon-inactive (1).png' %}" class="image">
+
+        </div>
+        <div class="text">
+            <strong>{{active}}</strong> <br>
+            <span>Active Cases</span>
+        </div>
+
+    </div>
+
+    <div class="box2">
+        <div class="icon">
+            <img src="{% static 'img/icon-inactive (1).png' %}" class="image">
+
+        </div>
+        <div class="text">
+            <strong>{{cured}}</strong> <br>
+            <span>Cured/ Discharged</span>
+        </div>
+
+    </div>
+    <div class="box3">
+        <div class="icon">
+            <img src="{% static 'img/icon-inactive (1).png' %}" class="image">
+
+        </div>
+        <div class="text">
+            <strong>{{death}}</strong> <br>
+            <span>Deaths</span>
+        </div>
+
+    </div>
+    <div class="box4">
+        <div class="icon">
+            <img src="{% static 'img/icon-inactive (1).png' %}" class="image">
+
+        </div>
+        <div class="text">
+            <strong>N/A</strong> <br>
+            <span>Migrated</span>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="technical">
+    <strong>For any technical enquiry with respect to COVID19,
+        you may kindly email on technicalquery.covid19@gov.in</strong>
+</div>
+
+<div class="slider">
+    <figure>
+        <img src="{% static 'img/01.PNG' %}">
+        <img src="{% static 'img/02.PNG' %}">
+        <img src="{% static 'img/03.PNG' %}">
+        <img src="{% static 'img/04.PNG' %}">
+    </figure>
+
+</div>
+
+
+</body>
+</html>

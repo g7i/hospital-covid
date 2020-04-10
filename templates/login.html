@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+<body>
+<div class="fight">
+    <p>India's Fight Against Corona</p>
+</div>
+<div class="wrapper">
+    <div class="title">
+        LogIn
+    </div>
+    <div class="form">
+        <form action="{% url 'login' %}" method="post">
+            <div class="inputfield">
+                <label>Username</label>
+                <input type="text" class="input" name="username" required>
+            </div>
+            <div class="inputfield">
+                <label>Password</label>
+                <input type="password" class="input" name="password" required>
+            </div>
+
+
+            <div style="color:red;">{{ error }}</div>
+
+            <div class="inputfield">
+                <input type="submit" value="LogIn" class="btn">
+            </div>
+            {% csrf_token %}
+        </form>
+    </div>
+    <div class="regnot">
+        <label class="notreg">Not Registered? <a href="{% url 'register' %}">Register here.</a></label>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Everyday Report</title>
+    <link rel="stylesheet" href="{% static 'todays-details.css' %}">
+</head>
+<body>
+<div class="help">
+
+</div>
+
+
+<div class="nav">
+    <label class="logo">
+        India's Fight Against Corona
+    </label>
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'details' %}">Upload Everyday Report</a></li>
+        <li><a href="{% url 'patient-reg' %}">Paitent Register</a></li>
+        <li><a href="{% url 'logout' %}">LogOut</a></li>
+    </ul>
+</div>
+
+<div class="wrapper">
+    <div class="title">
+        Update Everyday Report
+    </div>
+    <div class="form">
+        <form action="{% url 'details' %}" method="post" enctype="multipart/form-data">
+            <div class="inputfield">
+                <label>Today's Report</label>
+                <input type="file" class="input" required name="report">
+            </div>
+            <div class="inputfield">
+                <label>Total Sample</label>
+                <input type="number" class="input" name="sample" required>
+            </div>
+            <div class="inputfield">
+                <label>Confiremed Positive</label>
+                <input type="number" class="input" name="positive" required>
+            </div>
+            <div class="inputfield">
+                <label>Confirmed Negative</label>
+                <input type="number" class="input" name="negative" required>
+            </div>
+            <div class="inputfield">
+                <label>Pending</label>
+                <input type="number" class="input" name="pending" required>
+            </div>
+            <div class="inputfield">
+                <label>Total Deaths</label>
+                <input type="number" class="input" name="deaths" required>
+            </div>
+            <div class="inputfield">
+                <label>Total Discharged</label>
+                <input type="number" class="input" name="discharged" required>
+            </div>
+
+
+            <div class="inputfield">
+                <input type="submit" value="Update" class="btn">
+            </div>
+            {% csrf_token %}
+        </form>
+    </div>
+    <div class="regnot">
+        <label class="notreg">Paitent Registration and login <a href="{% url 'patient-reg' %}">Click here.</a></label>
+    </div>
+</div>
+
+<div class="container">
+    <div class="box1">
+        <div class="icon">
+            <img src="{% static 'img/icon-inactive (1).png' %}" class="image">
+
+        </div>
+        <div class="text">
+            <strong>3030</strong> <br>
+            <span>Active Cases</span>
+        </div>
+
+    </div>
+
+    <div class="box2">
+        <div class="icon">
+            <img src="{% static 'img/icon-inactive (1).png' %}" class="image">
+
+        </div>
+        <div class="text">
+            <strong>266</strong> <br>
+            <span>Cured/ Discharged</span>
+        </div>
+
+    </div>
+    <div class="box3">
+        <div class="icon">
+            <img src="{% static 'img/icon-inactive (1).png' %}" class="image">
+
+        </div>
+        <div class="text">
+            <strong>77</strong> <br>
+            <span>Deaths</span>
+        </div>
+
+    </div>
+    <div class="box4">
+        <div class="icon">
+            <img src="{% static 'img/icon-inactive (1).png' %}" class="image">
+
+        </div>
+        <div class="text">
+            <strong>1</strong> <br>
+            <span>Migrated</span>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

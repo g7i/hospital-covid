@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background-image: url(img/c.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  
+  
+}
+
+
+.nav {
+  
+    background-color: #004a86;
+    padding: 10px;
+  }
+  
+ .nav ul{
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+  
+  .nav  ul li{
+    display: inline-block;
+    list-style-type: none;
+    padding:5px;
+    text-align: right;
+    line-height: 5px;
+  
+  }
+  
+ .nav  ul li a {
+    text-decoration: none;
+    color: white;
+    background-color: #005ba5;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  ul li a:hover{
+    background-color: #008cff;
+  }
+  
+  label.logo{
+    color: white;
+    font-size: 35px;
+  }
+
+
+  .container {
+    position: relative;
+    width: 1200px;
+    height: 300px;
+    margin: auto;
+    margin-top: 150px;
+   
+    
+  
+  }
+  
+  .container .box1{
+    position: relative;
+    width: calc(300px - 30px);
+    height: calc(300px - 30px);
+    background: rgb(0, 255, 255);
+    float: left;
+    margin: 15px;
+    border-radius: 30px;
+    margin-top: -50px;
+  }
+  
+  
+  
+  .image {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+  
+  }
+  
+  .box1 {
+    display: block;
+    text-align: center;
+  }
+  
+  .text{
+    font-size: 25px;
+    margin-top: 20px;
+  }
+  
+  
+  
+  .container .box2{
+    position: relative;
+    width: calc(300px - 30px);
+    height: calc(300px - 30px);
+    background: rgb(0, 255, 98);
+    float: left;
+    margin: 15px;
+    border-radius: 30px;
+    margin-top: -50px;
+  }
+  
+  
+  
+  .image {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+  
+  }
+  
+  .box2 {
+    display: block;
+    text-align: center;
+  }
+  
+  .text{
+    font-size: 25px;
+    margin-top: 20px;
+  }
+  
+  .container .box3{
+    position: relative;
+    width: calc(300px - 30px);
+    height: calc(300px - 30px);
+    background: rgb(255, 35, 35);
+    float: left;
+    margin: 15px;
+    border-radius: 30px;
+    margin-top: -50px;
+  }
+  
+  
+  
+  .image {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+  
+  }
+  
+  .box3 {
+    display: block;
+    text-align: center;
+  }
+  
+  .text{
+    font-size: 25px;
+    margin-top: 20px;
+  }
+  
+  .container .box4{
+    position: relative;
+    width: calc(300px - 30px);
+    height: calc(300px - 30px);
+    background: rgb(251, 255, 0);
+    float: left;
+    margin: 15px;
+    border-radius: 30px;
+    margin-top: -50px;
+  }
+  
+  
+  
+  .image {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+  
+  }
+  
+  .box4 {
+    display: block;
+    text-align: center;
+  }
+  
+  .text{
+    font-size: 25px;
+    margin-top: 20px;
+  }
+
+  .helpline {
+      text-align: center;
+     
+  }
+
+  .helpline ul{
+      background-color: yellow;
+      padding: 10px;
+      
+  }
+  .helpline ul li{
+      list-style-type: none;
+      display: inline-block;
+      margin-left: 40px;
+  }
+
+  
+  .technical {
+      background: orangered;
+      text-align: center;
+      padding:10px;
+      color: white;
+      font-size: 20px;
+  }
+
+  .statee a {
+      text-decoration: none;
+      color: black;
+      
+  }
+
+  .statee a:hover{
+      background-color: transparent;
+  }
+
+
+@keyframes slider {
+  0%{
+    left: 0;
+  }
+  20%{
+    left: 0;
+  }
+  25%{
+    left: -100%;
+  }
+  45%{
+    left: -100%;
+  }
+  50%{
+    left: -200%;
+  }
+  70%{
+    left: -200%;
+  }
+  75%{
+    left: -300%;
+  }
+  95%{
+    left: -300%;
+  }
+  100%{
+    left: -400%;
+  }
+}
+
+
+.slider{
+  overflow: hidden;
+  height: 800px;
+  width: 1000px;
+  margin-left: 200px;
+  margin-top: 50px;
+  border: 2px solid orangered;
+}
+
+.slider figure img{
+  width: 20%;
+  float: left;
+}
+
+.slider figure{
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  animation: 20s slider infinite;
+}

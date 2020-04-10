@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+</head>
+<body>
+
+
+<div class="fight">
+    <p>India's Fight Against Corona</p>
+</div>
+
+<div class="wrapper">
+    <div class="title">
+        Registration Form
+    </div>
+    <div class="form">
+        <form action="{% url 'register' %}" method="post">
+            <div class="inputfield">
+                <label>Hospital Name</label>
+                <input type="text" class="input" name="name" required>
+            </div>
+            <div class="inputfield">
+                <label>District</label>
+                <input type="text" class="input" name="district" required>
+            </div>
+            <div class="inputfield">
+                <label>Primary Key</label>
+                <input type="text" class="input" name="key" required>
+            </div>
+            <div class="inputfield">
+                <label>Phone Number</label>
+                <input type="text" class="input" name="contact" required>
+            </div>
+            <div class="inputfield">
+                <label>Email Address</label>
+                <input type="text" class="input" name="email" required>
+            </div>
+
+            <div class="inputfield">
+                <label>Address</label>
+                <textarea class="textarea" name="address" required></textarea>
+            </div>
+            <div class="inputfield">
+                <label>Postal Code</label>
+                <input type="text" class="input" name="code" required>
+            </div>
+
+            <div class="inputfield">
+                <label> Username</label>
+                <input type="text" class="input" name="username" required>
+            </div>
+            <div class="inputfield">
+                <label>Passwrod</label>
+                <input type="password" class="input" name="password" required>
+            </div>
+            <div class="inputfield">
+                <label>Confirm Passwrod</label>
+                <input type="password" class="input" name="confirm_password" required>
+            </div>
+            <div class="inputfield">
+                <label>Hospital Type</label>
+                <div class="custom_select">
+                    <select name="type" required>
+                        <option value="">Select</option>
+                        <option value="male">Government</option>
+                        <option value="female">Private</option>
+                    </select>
+                </div>
+            </div>
+            <div style="color:red;">{{ error }}</div>
+            <div class="inputfield">
+                <input type="submit" value="Register" class="btn">
+            </div>
+            {% csrf_token %}
+
+        </form>
+    </div>
+    <div class="regnot">
+        <label class="notreg">Already Registered? <a href="{% url 'login' %}">LogIn here.</a></label>
+    </div>
+</div>
+
+</body>
+</html>
