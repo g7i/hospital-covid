@@ -1,1 +1,1 @@
-web: gunicorn quiz.wsgi
+web: gunicorn hospital.wsgi
