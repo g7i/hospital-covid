@@ -4,7 +4,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from hosApp.models import Hospital, Report, Patient
 
@@ -26,6 +26,16 @@ def api(request):
         'active': sum(c.pending for c in reports),
         'death': sum(c.deaths for c in reports),
         'cured': sum(c.discharged for c in reports),
+    }
+    return JsonResponse(status=200, data=context)
+
+
+def patient(request, id):
+    pat = get_object_or_404(Patient, aadhar=id)
+    context = {
+        'aadhar': pat.aadhar,
+        'status': pat.status,
+        'come_by': pat.come_by,
     }
     return JsonResponse(status=200, data=context)
 

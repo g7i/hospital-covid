@@ -10,4 +10,5 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('details', views.details, name='details'),
     path('api', views.api, name='api'),
+    path('api/patient/<int:id>', views.patient, name='patient'),
 ]
