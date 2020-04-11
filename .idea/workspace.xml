@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="08ce3b9b-18ea-4817-bdc0-712bc3978448" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hosApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/hosApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hosApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/hosApp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hosApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hosApp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/todays-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/todays-details.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +21,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -73,11 +75,24 @@
       <updated>1586488270337</updated>
       <workItem from="1586488282304" duration="6384000" />
       <workItem from="1586518583226" duration="64000" />
-      <workItem from="1586543252915" duration="377000" />
+      <workItem from="1586543252915" duration="655000" />
+      <workItem from="1586544775721" duration="190000" />
+      <workItem from="1586545001010" duration="6000" />
+      <workItem from="1586578079439" duration="1936000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="684" y="263" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586544839395">
+      <screen x="75" y="0" width="1845" height="1080" />
+    </state>
+    <state x="684" y="263" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/75.0.1845.1080@75.0.1845.1080" timestamp="1586544839395" />
+    <state x="479" y="175" width="1037" height="752" key="SettingsEditor" timestamp="1586578102301">
+      <screen x="75" y="0" width="1845" height="1080" />
+    </state>
+    <state x="479" y="175" width="1037" height="752" key="SettingsEditor/75.0.1845.1080@75.0.1845.1080" timestamp="1586578102301" />
   </component>
 </project>

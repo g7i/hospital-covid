@@ -22,11 +22,38 @@ def index(request):
 
 def api(request):
     reports = Report.objects.filter(date__exact=date.today())
-    context = {
-        'active': sum(c.pending for c in reports),
-        'death': sum(c.deaths for c in reports),
-        'cured': sum(c.discharged for c in reports),
-    }
+    if state := request.GET.get('state', '') != '':
+        c = reports.get(state=state)
+        context = {
+            'total': c.sample,
+            'positive': c.positive,
+            'negative': c.negative,
+            'pending': c.pending,
+            'admit': c.admit,
+            'death': c.deaths,
+            'discharged': c.discharged,
+        }
+    elif district := request.GET.get('district', '') != '':
+        c = reports.get(district=district)
+        context = {
+            'total': c.sample,
+            'positive': c.positive,
+            'negative': c.negative,
+            'pending': c.pending,
+            'admit': c.admit,
+            'death': c.deaths,
+            'discharged': c.discharged,
+        }
+    else:
+        context = {
+            'pending': sum(c.pending for c in reports),
+            'death': sum(c.deaths for c in reports),
+            'discharged': sum(c.discharged for c in reports),
+            'total': sum(c.sample for c in reports),
+            'positive': sum(c.positive for c in reports),
+            'negative': sum(c.negative for c in reports),
+            'admit': sum(c.admit for c in reports),
+        }
     return JsonResponse(status=200, data=context)
 
 
@@ -75,6 +102,7 @@ def register(request):
         username = request.POST["username"]
         name = request.POST["name"]
         district = request.POST["district"]
+        state = request.POST["state"]
         code = request.POST["code"]
         key = request.POST["key"]
         contact = request.POST["contact"]
@@ -94,6 +122,7 @@ def register(request):
                         name=name,
                         user=user,
                         district=district,
+                        state=state,
                         code=code,
                         key=key,
                         contact=contact,
@@ -119,6 +148,7 @@ def details(request):
             sample=request.POST['sample'],
             positive=request.POST['positive'],
             negative=request.POST['negative'],
+            admit=request.POST['admit'],
             pending=request.POST['pending'],
             deaths=request.POST['deaths'],
             discharged=request.POST['discharged'],
