@@ -38,7 +38,7 @@ class Patient(models.Model):
     name = models.CharField(max_length=100)
     father = models.CharField(max_length=100)
     aadhar = models.BigIntegerField()
-    mobile = models.IntegerField()
+    mobile = models.BigIntegerField()
     status = models.CharField(max_length=50)
     age = models.CharField(max_length=50)
     come_by = models.CharField(max_length=50)
