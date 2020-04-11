@@ -9,7 +9,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from hosApp.models import Hospital, Report, Patient
 
 
-@login_required(login_url='/login')
 def index(request):
     reports = Report.objects.filter(date__exact=date.today())
     context = {
@@ -22,38 +21,31 @@ def index(request):
 
 def api(request):
     reports = Report.objects.filter(date__exact=date.today())
-    if state := request.GET.get('state', '') != '':
-        c = reports.get(state=state)
-        context = {
-            'total': c.sample,
-            'positive': c.positive,
-            'negative': c.negative,
-            'pending': c.pending,
-            'admit': c.admit,
-            'death': c.deaths,
-            'discharged': c.discharged,
-        }
-    elif district := request.GET.get('district', '') != '':
-        c = reports.get(district=district)
-        context = {
-            'total': c.sample,
-            'positive': c.positive,
-            'negative': c.negative,
-            'pending': c.pending,
-            'admit': c.admit,
-            'death': c.deaths,
-            'discharged': c.discharged,
-        }
-    else:
-        context = {
-            'pending': sum(c.pending for c in reports),
-            'death': sum(c.deaths for c in reports),
-            'discharged': sum(c.discharged for c in reports),
-            'total': sum(c.sample for c in reports),
-            'positive': sum(c.positive for c in reports),
-            'negative': sum(c.negative for c in reports),
-            'admit': sum(c.admit for c in reports),
-        }
+
+    if state := request.GET.get('state', False):
+        hos = Hospital.objects.filter(state__iexact=state)
+        users = (i.user for i in hos)
+        c = []
+        for user in users:
+            c = c + list(reports.filter(user=user))
+        reports = c
+    elif district := request.GET.get('district', False):
+        hos = Hospital.objects.filter(district__iexact=district)
+        users = (i.user for i in hos)
+        c = []
+        for user in users:
+            c = c + list(reports.filter(user=user))
+        reports = c
+
+    context = {
+        'pending': sum(c.pending for c in reports),
+        'death': sum(c.deaths for c in reports),
+        'discharged': sum(c.discharged for c in reports),
+        'total': sum(c.sample for c in reports),
+        'positive': sum(c.positive for c in reports),
+        'negative': sum(c.negative for c in reports),
+        'admit': sum(c.admit for c in reports),
+    }
     return JsonResponse(status=200, data=context)
 
 
@@ -108,6 +100,10 @@ def register(request):
         contact = request.POST["contact"]
         address = request.POST["address"]
         type = request.POST["type"]
+
+        if key != 'covid-19-warrior':
+            print(key)
+            return render(request, 'register.html', {'error': 'Invalid Key.'})
 
         if password == confirm_password:
             try:
