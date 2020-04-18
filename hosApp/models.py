@@ -34,7 +34,7 @@ class Report(models.Model):
 
 
 class Patient(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     father = models.CharField(max_length=100)
     aadhar = models.BigIntegerField()
@@ -46,3 +46,23 @@ class Patient(models.Model):
 
     def __str__(self):
         return f'{self.aadhar} : ' + self.name
+
+
+class Bank(models.Model):
+    name = models.CharField(max_length=100)
+    district = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    bank = models.CharField(max_length=100)
+    branch = models.CharField(max_length=100)
+    phone = models.CharField(max_length=30)
+    email = models.EmailField()
+    address = models.TextField()
+    pin = models.IntegerField()
+    ifsc = models.CharField(max_length=20)
+    allowed = models.IntegerField()
+    lat = models.DecimalField(max_digits=20, decimal_places=10)
+    lon = models.DecimalField(max_digits=20, decimal_places=10)
+    time = models.IntegerField()
+
+    def __str__(self):
+        return self.name

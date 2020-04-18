@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
-from hosApp.models import Hospital, Report, Patient
+from hosApp.models import Hospital, Report, Patient, Bank
 
 
 def index(request):
@@ -156,3 +156,46 @@ def details(request):
 def logout(request):
     auth.logout(request)
     return redirect('index')
+
+
+def bank(request):
+    if request.method == 'POST':
+        try:
+            name = request.POST['name']
+            district = request.POST['district']
+            state = request.POST['state']
+            bank_ = request.POST['bank']
+            branch = request.POST['branch']
+            phone = request.POST['phone']
+            email = request.POST['email']
+            address = request.POST['address']
+            pin = request.POST['pin']
+            ifsc = request.POST['ifsc']
+            allowed = request.POST['allowed']
+            lat = request.POST['lat']
+            lon = request.POST['lon']
+            time = request.POST['time']
+
+            Bank.objects.create(
+                name=name,
+                district=district,
+                state=state,
+                bank=bank_,
+                branch=branch,
+                phone=phone,
+                email=email,
+                address=address,
+                pin=pin,
+                ifsc=ifsc,
+                allowed=allowed,
+                lat=lat,
+                lon=lon,
+                time=time
+            )
+
+            return render(request, 'bank_portal_html.html', {'msg': "Bank Registered Successfully!"})
+
+        except:
+            return render(request, 'bank_portal_html.html', {'err': "Something went wrong!"})
+
+    return render(request, 'bank_portal_html.html')
